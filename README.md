@@ -17,7 +17,7 @@
 ---
 
 
-![База](../web6402chernykhvs/lab2/img/image.png)
+![База](./lab2/img/image.png)
 
 *Картинка из смешных интернетов*
 
