@@ -30,6 +30,9 @@ function sumTo(n) {
  * @param {*} n
  */
 function recSumTo(n) {
+    if (!Number.isInteger(n) || n < 1) {
+        throw new Error("Аргумент должен быть положительным целым числом.");
+    }
     return n === 1 ? 1 : n + recSumTo(n - 1);
 }
 
@@ -38,7 +41,22 @@ function recSumTo(n) {
  * @param {*} n
  */
 function factorial(n) {
+    if (!Number.isInteger(n) || n < 0) {
+        throw new Error("Аргумент должен быть неотрицательным целым числом.");
+    }
     return n <= 1 ? 1 : n * factorial(n - 1);
+}
+
+/**
+ * Находит N-е число Фибоначчи.
+ * @param {*} n
+ */
+function fibonacci(n) {
+    if (!Number.isInteger(n) || n < 0) {
+        throw new Error("Аргумент должен быть неотрицательным целым числом.");
+    }
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 /**
@@ -49,18 +67,6 @@ function isBinary(n) {
     return (n > 0) && (n & (n - 1)) === 0;
 }
 
-/**
- * Находит N-е число Фибоначчи.
- * @param {*} n
- */
-function fibonacci(n) {
-    if (n <= 1) return n;
-    let a = 0, b = 1;
-    for (let i = 2; i <= n; i++) {
-        [a, b] = [b, a + b];
-    }
-    return b;
-}
 
 /**
  * Создает функцию для выполнения заданной операции.
@@ -101,18 +107,22 @@ function sequence(start = 0, step = 1) {
 function deepEqual(firstObject, secondObject) {
     if (firstObject === secondObject) return true;
 
+    // Проверяем на NaN
+    if (Number.isNaN(firstObject) && Number.isNaN(secondObject)) return true;
+
+    // Проверяем типы и null
     if (typeof firstObject !== "object" || firstObject === null ||
         typeof secondObject !== "object" || secondObject === null) {
         return false;
     }
 
-    const keysFirst = Object.keys(firstObject);
-    const keysSecond = Object.keys(secondObject);
+    const keysFirst = Reflect.ownKeys(firstObject);
+    const keysSecond = Reflect.ownKeys(secondObject);
 
     if (keysFirst.length !== keysSecond.length) return false;
 
     for (const key of keysFirst) {
-        if (!deepEqual(firstObject[key], secondObject[key])) {
+        if (!keysSecond.includes(key) || !deepEqual(firstObject[key], secondObject[key])) {
             return false;
         }
     }
