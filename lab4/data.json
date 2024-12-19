@@ -1,0 +1,25 @@
+{
+    "/contacts": {
+        "get": {
+            "data": [
+                { "id": 1, "name": "пупу1", "email": "пупу1@example.com" },
+                { "id": 2, "name": "пупу2", "email": "пупу2@example.com" }
+            ]
+        },
+        "post": {
+            "data": [
+                { "id": 3, "name": "пупу3", "email": "пупу3@example.com" }
+            ]
+        }
+    },
+    "/table": {
+        "get": {
+            "data": [
+                { "material": "Графический планшет", "brand": "HUION HS611", "type": "Электроника", "description": "Для скетчей и полноценных работ" },
+                { "material": "Скетчбук", "brand": "Sakura", "type": "Бумажная продукция", "description": "Для скетчей и идей" },
+                { "material": "Карандаши", "brand": "Koh-i-noor", "type": "Цветные карандаши", "description": "Для эскизов и набросков" },
+                { "material": "Маркеры спиртовые", "brand": "Какой-то ноунейм", "type": "Цветные", "description": "Эскизы и наброски" }
+            ]
+        }
+    }
+}
