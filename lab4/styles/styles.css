@@ -1,0 +1,375 @@
+/* Определение основных цветовых переменных */
+:root {
+    --main-color: #87CEEB; /* Светло-голубой */
+    --dark-color: #333; /* Тёмно-серый для текста */
+    --button-color: #2080c4; /* Синий для кнопок */
+    --button-hover-color: #1e2d69; /* Темно-синий для кнопок при наведении */
+    --input-focus-color: #205699; /* Синий для фокуса */
+    --background-color: #f9f9f9; /* Светлый фон */
+    --error-color: rgb(174, 48, 29); /* Цвет для сообщений об ошибке */
+    --social-hover-color: #555; /* Цвет при наведении на социальные иконки */
+}
+
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+header {
+    background-color: var(--main-color);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav a {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    background-color: var(--dark-color);
+    color: #fff;
+}
+
+section {
+    padding: 80px 20px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: var(--dark-color);
+    margin-bottom: 30px;
+    animation: glow 2s infinite ease-in-out;
+}
+
+/* Главная страница: Flexbox */
+.profile {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--main-color);
+}
+
+.profile-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+.profile-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-text li {
+    margin: 8px 0;
+}
+
+.drawing-preferences {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.drawing-preferences .column {
+    flex: 1;
+    max-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.drawing-preferences h3 {
+    font-size: 1.4em;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.drawing-preferences ul {
+    list-style: disc;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.drawing-preferences li {
+    margin: 8px 0;
+    font-size: 1em;
+}
+
+/* Галерея: Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin-top: 40px;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 10px;
+    border: 5px solid var(--main-color);
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.gallery-item img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Материалы: Grid для таблицы */
+table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead, tbody, tr {
+    display: contents;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--main-color);
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+/* Контакты: Flexbox */
+.contacts {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+.contact-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1 1 200px;
+}
+
+.contact-item a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: var(--main-color);
+}
+
+/* Соц сети */
+.social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-media a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4081c2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.social-media a:hover {
+    background-color: var(--social-hover-color);
+}
+
+/* Анимация  */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.fade-in:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.fade-in:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+/* Анимация */
+.bounce-hover {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bounce-hover:hover {
+    transform: translateY(-5px);
+}
+
+/* Анимация */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-hover {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.pulse-hover:hover {
+    animation: pulse 0.6s infinite;
+}
+
+/* Анимация */
+@keyframes glow {
+    0% {
+        color: #080f36;
+        text-shadow: none;
+    }
+    50% {
+        color: #2849a4;
+        text-shadow: 0 0 5px #47d5fc;
+    }
+    100% {
+        color: #080f36;
+        text-shadow: none;
+    }
+}
+
+/* Стили для формы */
+#contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"] {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus {
+    border-color: var(--input-focus-color);
+    outline: none;
+}
+
+#contact-form button {
+    background-color: var(--button-color);
+    margin-top: 20px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: var(--button-hover-color);
+}
+
+#contact-form br {
+    margin-bottom: 20px;
+}
+
+#contact-form span {
+    color:rgb(174, 48, 29);
+    display:none;
+}
